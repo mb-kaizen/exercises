@@ -21,13 +21,13 @@ class Stack
     @data = LinkedListNode.new(value, data)
   end
 
-  def pop
-    if data != nil
-      current_node = data
-      @data = data.next_node
-      current_node
-    end
-  end
+  # def pop
+  #   if data != nil
+  #     current_node = data
+  #     @data = data.next_node
+  #     current_node
+  #   end
+  # end
 
 end
 
