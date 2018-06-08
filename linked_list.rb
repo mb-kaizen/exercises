@@ -1,8 +1,8 @@
 class LinkedListNode
-  attr_accessor :value, :next_node
+  attr_accessor :node_value, :next_node
 
-  def initialize(value, next_node=nil)
-    @value = value
+  def initialize(node_value, next_node=nil)
+    @node_value = node_value
     @next_node = next_node
   end
 
@@ -18,16 +18,18 @@ class Stack
 
   #push a value onto the stack
   def push(value)
+    puts "value#{value}"
+    puts "data#{data}"
     @data = LinkedListNode.new(value, data)
   end
 
-  # def pop
-  #   if data != nil
-  #     current_node = data
-  #     @data = data.next_node
-  #     current_node
-  #   end
-  # end
+  def pop
+    if data != nil
+      current_node = data
+      @data = data.next_node
+      current_node
+    end
+  end
 
 end
 
@@ -36,7 +38,7 @@ def reverse_list(list)
   reversed_stack = Stack.new
 
   while list
-    reversed_stack.push(list.value)
+    reversed_stack.push(list.node_value)
     list = list.next_node
   end
 
@@ -45,7 +47,7 @@ end
 
 def print_values(list_node)
     if list_node
-      print "#{list_node.value} --> "
+      print "#{list_node.node_value} --> "
       print_values(list_node.next_node)
     else
       print "nil\n"
@@ -64,6 +66,9 @@ puts "----------"
 revlist = reverse_list(node3)
 
 print_values(revlist)
+
+puts revlist.inspect
+
 
 #stack = Stack.new
 #stack.push(37)
