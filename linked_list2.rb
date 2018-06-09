@@ -18,8 +18,6 @@ def reverse_list(list)
     previous_node = current_node
   end
 
-  puts previous_node.inspect
-
   return previous_node
 end
 
@@ -42,9 +40,9 @@ print_values(node1)
 
 puts "----------"
 
-revlist = reverse_list(node1)
+reversed_list = reverse_list(node1)
 
-print_values(revlist)
+print_values(reversed_list)
 
 
 
