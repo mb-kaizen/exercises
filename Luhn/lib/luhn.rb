@@ -11,7 +11,7 @@ module Luhn
             digit = digit - 9
           end        
       end
-      sum = sum + digit
+      sum += digit
     end
     
     if sum % 10 == 0
