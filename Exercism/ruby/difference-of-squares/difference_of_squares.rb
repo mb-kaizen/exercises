@@ -5,7 +5,7 @@ class Squares
   end
 
   def square_of_sum
-    ((0..@num).inject(:+))**2
+    (0..@num).inject(:+)**2
   end
 
   def sum_of_squares
