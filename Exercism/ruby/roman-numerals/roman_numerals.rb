@@ -1,4 +1,5 @@
 class Fixnum
+  #test
   MAPPING = [
     [1000, "M" ],
     [900,  "CM"],
@@ -32,3 +33,4 @@ end
 module BookKeeping
   VERSION = 2
 end
+
