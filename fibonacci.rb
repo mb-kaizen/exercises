@@ -11,11 +11,8 @@ end
 
 
 def recursive_fib(num)
-  if num < 2
-    return num
-  else
+    return num if num < 2
     return recursive_fib(num-1) + recursive_fib(num-2)
-  end
 end
 
 iterative_fib(8)
