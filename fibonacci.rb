@@ -1,6 +1,6 @@
 def iterative_fib(num)
-  sequence = [0, 1]
   return num if num < 2
+  sequence = [0, 1]
 
   while sequence.size <= num
     sequence << sequence[sequence.size - 1] + sequence[sequence.size - 2]
