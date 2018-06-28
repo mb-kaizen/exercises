@@ -15,8 +15,9 @@ def recursive_fib(num)
     return recursive_fib(num-1) + recursive_fib(num-2)
 end
 
+
 require 'benchmark'
-num = 35
+num = 100
 Benchmark.bm do |x|
   x.report("recursive_fib") { recursive_fib(num) }
   x.report("iterative_fib") { iterative_fib(num) }
