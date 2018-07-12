@@ -2,33 +2,41 @@
 # n is even: n -> n/2
 # n is odd: n -> 3n + 1
 class Collatz
-  
-  def collatz(num)
-    sequence = []
-    sequence << num
-    puts sequence
-    return sequence if num == 1
+  attr_accessor :sequence
 
-    return collatz(num/2) if num % 2 == 0
-    return collatz(3*num + 1)
+  def initialize
+    @sequence = []
+  end
+
+  def collatz(num, output=[])
+    if num == 1
+      output << num
+      return output
+    end 
+
+    return collatz(num/2, output << num) if num % 2 == 0
+    return collatz(3*num + 1, output << num)
   end
 
   def longest(range)
     longest = []
-
     1.upto(range) do |i|
-      current = []
-      current << collatz(i)
-      longest = current if current.size > longest.size
+      longest << collatz(i) if collatz(i).size > longest.size
+      p longest
     end
+    p "-----"
+    p longest
+    return longest
+  end
 
-    puts longest[0]
+  def show
+    p sequence
   end
 
 end
 
 first = Collatz.new
-first.collatz(5)
+first.longest(5)
 
 
 # consider making it class
