@@ -8,18 +8,18 @@ class Collatz
       output << num
       return output
     end 
-
-    return collatz(num/2, output << num) if num % 2 == 0
-    collatz(3*num + 1, output << num)
+    num % 2 == 0 ? collatz(num/2, output << num) : collatz(3*num + 1, output << num)
   end
 
   def longest(range)
     longest = []
+
     1.upto(range) do |i|
       current = []
       current << collatz(i) 
       longest = current[0] if longest.size < current[0].size 
     end
+
     p "#{longest[0]} produced the longest chain of collatz values with a total length of #{longest.size}!"
   end
 
