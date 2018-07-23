@@ -2,7 +2,7 @@ require 'spec_helper'
 
 RSpec.describe Luhn, type: :model do 
   describe 'is_valid? should work' do
-    it 'should retrn true if a number is valid' do
+    it 'should return true if a number is valid' do
       expect(Luhn.is_valid?(4194560385008504)).to be true
     end
 
