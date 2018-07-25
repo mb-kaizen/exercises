@@ -2,7 +2,8 @@
 # Given an array of mixed integers and strings, return the sum of the values of the array
 
 class Alphabet
-  attr_accessor :value_array, :alphabet, :value_alphabet, :alphabet_hash
+  attr_reader :value_array, :alphabet, :value_alphabet 
+  attr_accessor :alphabet_hash
 
   def initialize(value_array)
     @value_array = value_array
@@ -11,6 +12,9 @@ class Alphabet
     @alphabet_hash = {}
   end
 
+  # Was pressed on time and couldn't find the method to create a hash with 
+  # the corresponding index as key value pairs so I build the method. 
+  # I know there must be a more efficient way, will refactor later.
   def create_hash_with_index
     value_alphabet.each do |element|
       alphabet_hash[element[0]] = element[1]
@@ -28,9 +32,23 @@ class Alphabet
         element.split("").each do |letter|
           count += alphabet_hash[letter].to_i
         end
-      end
+      end    
     end
-    p count
+    return count
+  end
+
+  def arr_value_recursive(i=0, count=0)
+      return count if i == value_array.size 
+
+      if value_array[i].is_a? Integer
+        count += value_array[i]
+      else
+        value_array[i].split("").each do |letter|
+          count += alphabet_hash[letter].to_i
+        end
+      end
+
+    arr_value_recursive(i+1, count)
   end
 
 end
@@ -40,3 +58,4 @@ value_array = [1, 'all', 4, 53, 'Cats', 24, 'Bilbo Swaggins', 12, 74, 'Wowwie', 
 first_array = Alphabet.new(value_array)
 first_array.create_hash_with_index
 first_array.arr_value_iterative
+first_array.arr_value_recursive
