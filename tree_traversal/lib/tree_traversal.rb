@@ -1,4 +1,4 @@
-module Tree
+class Tree
   attr_accessor :payload, :children
 
   def initialize(payload, children)
@@ -12,15 +12,21 @@ module Tree
     p trunk_node.children
   end
 
+  # perform pre-order operation
+  # for any tree do above and below:
+  # for each i from 1 to the number of children do:
+  #    visit i-th, if present
+  #    perform in order operation
+  # perform post order operation
   def depth_first_search(tree, desired_payload)
-    p tree.payload
-    p "-----"
-    return if tree.payload == desired_payload
-
-    tree.children[0] == nil ? # Go back up : depth_first_search(tree.children[0], 11)
+    return if tree == nil
+    return tree.payload if tree.payload == desired_payload
 
     depth_first_search(tree.children[0], 11)
+    depth_first_search(tree.children[1], 11)
   end
+
+  def breadth_first_search()
 
 end
 
@@ -38,5 +44,4 @@ shallow_fifth_node = Tree.new(5, [ninth_node])
 # The "trunk" of the tree
 trunk_node = Tree.new(2, [seventh_node, shallow_fifth_node])
 
-
-depth_first_search(trunk_node, 11)
+trunk_node.depth_first_search(trunk_node, 11)
