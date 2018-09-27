@@ -9,11 +9,12 @@ class BinarySearchTree
       @right = nil
     end
 
+    # Inserts node into tree
     def insert_node(new_value)
       if new_value <= @value
         @left.nil? ? @left = Node.new(new_value) : @left.insert_node(new_value)
       elsif new_value > @value
-        @right.nil? ? @right = Node.new(new_value) : @right.insert_node(new_value)    
+        @right.nil? ? @right = Node.new(new_value) : @right.insert_node(new_value)
       end
     end
   end
